@@ -6,6 +6,89 @@
     </head>
     <body>
 
+        <header>
+            <nav class="navbar navbar-primary">
+                <div class="container-fluid">
+                    <div class="nav navbar-brand col-sm-2"></div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand">Services</a>
+                    </div>
+                    <div>
+                            <ul class="nav navbar-nav">
+                                <li><a href="#!/">Glavna</a></li>
+                                <li><a href="#!/mypage">Moja Stranica</a></li>
+                            </ul>
+        
+                            <div class="nav navbar-brand navbar-right col-sm-2"></div>
+        
+                            <ul class="nav navbar-nav navbar-right">
+                                
+                                <!--IF User = Gost-->
+                                <li class="dropdown" ng-if="user.uloga == 0">
+                                    <a class="" data-toggle="dropdown">Login<span class="caret"></span></a>
+                                    <div class="dropdown-menu" style="width: 300px">
+                                        <br/>
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="inputUsername" class="col-sm-4 control-label">Username</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" class="form-control" id="inputUsername" ng-model="user.username" placeholder="Username">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword" class="col-sm-4 control-label">Password</label>
+                                                <div class="col-sm-7">
+                                                    <input type="password" class="form-control" id="inputPassword" ng-model="user.password" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-6 col-sm-5">
+                                                    <button class="btn btn-primary" ng-click="loginForm()">Logovanje</button>
+                                                </div>
+                                                <br/>
+                                                <div class="col-sm-offset-6 col-sm-5">
+                                                    <a href="#!/register" class="">Registracija</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </li>
+                                <li class="dropdown" ng-if="user.uloga == 0">
+                                        <a class="" data-toggle="dropdown">Login<span class="caret"></span></a>
+                                        <div class="dropdown-menu" style="width: 300px">
+                                            <br/>
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="inputUsername" class="col-sm-4 control-label">Username</label>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="inputUsername" ng-model="user.username" placeholder="Username">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputPassword" class="col-sm-4 control-label">Password</label>
+                                                    <div class="col-sm-7">
+                                                        <input type="password" class="form-control" id="inputPassword" ng-model="user.password" placeholder="Password">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-6 col-sm-5">
+                                                        <button class="btn btn-primary" ng-click="loginForm()">Logovanje</button>
+                                                    </div>
+                                                    <br/>
+                                                    <div class="col-sm-offset-6 col-sm-5">
+                                                        <a href="#!/register" class="">Registracija</a>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </li>
+                            </ul>
+                        </div>
+                </div>
+                
+            </nav>
+        </header>
+
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
