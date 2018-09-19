@@ -1,3 +1,11 @@
-<p>Ovde izlistaš sa *ngIf sve servise iz komponente ispod</p>
+<p> </p>
 <p>lista svih servisa</p>
 <p> services works! </p>
+<div>
+ <ul >
+    <li *ngFor="let service of services">
+      <a routerLink="/services/{{service.id}}">{{service.id}} {{service.name}} </a>
+      <button>Add</button> <button>Delete</button>
+    </li> 
+ </ul>
+</div>

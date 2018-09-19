@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   { path: 'services', component: ServicesComponent },                     // Home-Services
   { path: 'services/:id', component: ServiceComponent },                  // Service, List Vehicles
   { path: 'services/:id/reservation', component: ReservationComponent },  // Service/Vehicle, vehicle reservation
-  { path: 'services/:id/:vehicleId', component: VehicleComponent },       // Service/Vehicle, One vehicle
+  { path: 'services/:id/vehicle', component: ServiceComponent },       // Service/Vehicle, One vehicle
 ];
 
 @NgModule({

@@ -1,3 +1,8 @@
 <p>service works! Neka service komponenta ide ovde</p>
-<p>parametar id = {{id}}</p>
+<p></p>
 <p> Lista svih vozila ovog servisa</p>
+<ul >
+    <li *ngFor="let vehicle of vehicles">
+        <a routerLink="/services/{{id}}/{{vehicle.id}}">{{vehicle.model}}{{vehicle.year}}</a>
+    </li>
+</ul>
