@@ -8,9 +8,9 @@ using RentApp.Models.Repositories;
 
 namespace RentApp.Persistance.Repository
 {
-    public class PictureConfirmationRepository : Repository<PictureConfirmation>, IPictureConfirmationRepository
+    public class PictureConfirmationRepository : Repository<PictureConfirmation, int>, IPictureConfirmationRepository
     {
-        public PictureConfirmationRepository(RADBContext context) : base(context)
+        public PictureConfirmationRepository(DbContext context) : base(context)
         {
         }
     }

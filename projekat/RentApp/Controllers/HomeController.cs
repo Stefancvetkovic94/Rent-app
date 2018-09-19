@@ -4,25 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using RentApp.Models.Entities;
-using RentApp.Persistance;
+using RentApp.Models;
 
 namespace RentApp.Controllers
 {
     public class HomeController : Controller
     {
+        IRentAppUnitOfWork unitOfWork;
+        public HomeController(IRentAppUnitOfWork unitOfWork)
+        {
+            this.unitOfWork = unitOfWork;
+        }
         public ActionResult Index()
         {
-            //using (var db = new RentAppUnitOfWork(new RADBContext()))
-            //{
-            //    db.VehicleType.Add(new VehicleType() { Id = 90, TypeName = "Test2" });
-            //    db.Complete();
-            //}
-
-            using (var db = new RentAppUnitOfWork(new RADBContext()))
-            {
-                var x = db.VehicleType.GetAll();
-                db.Complete();
-            }
+            unitOfWork.VehicleType.Add(new VehicleType { TypeName = "Test" });
+            var x = unitOfWork.VehicleType.GetAll();
+            unitOfWork.Complete();
 
             ViewBag.Title = "Home Page";
 

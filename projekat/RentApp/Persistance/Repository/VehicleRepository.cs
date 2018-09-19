@@ -8,24 +8,19 @@ using RentApp.Models.Repositories;
 
 namespace RentApp.Persistance.Repository
 {
-    public class VehicleRepository : Repository<Vehicle>, IVehicleRepository
+    public class VehicleRepository : Repository<Vehicle, int>, IVehicleRepository
     {
-        public VehicleRepository(RADBContext context) : base(context)
+        public VehicleRepository(DbContext context) : base(context)
         {
         }
 
-        public IEnumerable<Vehicle> GetVehiclesPage(int pageIndex, int pageSize)
+        public IEnumerable<Vehicle> GetVehiclesPage(int pageIndex, int pageSize = 10)
         {
             return RentAppContext.Vehicles
                 .OrderBy(v => v.Model)
                 .Skip((pageIndex - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
-        }
-
-        public RADBContext RentAppContext
-        {
-            get { return Context as RADBContext; }
         }
     }
 }

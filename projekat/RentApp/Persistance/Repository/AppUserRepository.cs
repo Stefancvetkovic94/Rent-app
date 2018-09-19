@@ -4,9 +4,9 @@ using RentApp.Models.Repositories;
 
 namespace RentApp.Persistance.Repository
 {
-    public class AppUserRepository : Repository<AppUser>, IAppUserRepository
+    public class AppUserRepository : Repository<AppUser, int>, IAppUserRepository
     {
-        public AppUserRepository(RADBContext context) : base(context)
+        public AppUserRepository(DbContext context) : base(context)
         {
         }
     }

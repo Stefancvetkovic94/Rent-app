@@ -8,9 +8,9 @@ using RentApp.Models.Repositories;
 
 namespace RentApp.Persistance.Repository
 {
-    public class ServiceRepository : Repository<Service>, IServiceRepository
+    public class ServiceRepository : Repository<Service, int>, IServiceRepository
     {
-        public ServiceRepository(RADBContext context) : base(context)
+        public ServiceRepository(DbContext context) : base(context)
         {
         }
     }

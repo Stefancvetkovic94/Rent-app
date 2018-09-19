@@ -8,9 +8,9 @@ using RentApp.Models.Repositories;
 
 namespace RentApp.Persistance.Repository
 {
-    public class VehicleTypeRepository : Repository<VehicleType>, IVehicleTypeRepostiory
+    public class VehicleTypeRepository : Repository<VehicleType, int>, IVehicleTypeRepostiory
     {
-        public VehicleTypeRepository(RADBContext context) : base(context)
+        public VehicleTypeRepository(DbContext context) : base(context)
         {
         }
     }

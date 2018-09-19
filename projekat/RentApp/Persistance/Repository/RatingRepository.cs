@@ -8,9 +8,9 @@ using RentApp.Models.Repositories;
 
 namespace RentApp.Persistance.Repository
 {
-    public class RatingRepository : Repository<Rating>, IRatingRepository
+    public class RatingRepository : Repository<Rating, int>, IRatingRepository
     {
-        public RatingRepository(RADBContext context) : base(context)
+        public RatingRepository(DbContext context) : base(context)
         {
         }
     }

@@ -2,43 +2,44 @@
 using RentApp.Models;
 using RentApp.Models.Repositories;
 using RentApp.Persistance.Repository;
+using Unity.Attributes;
 
 namespace RentApp.Persistance
 {
     public class RentAppUnitOfWork : IRentAppUnitOfWork
     {
-        private readonly RADBContext _context;
+        private readonly DbContext context;
 
-        public RentAppUnitOfWork(RADBContext context)
+        public RentAppUnitOfWork(DbContext context)
         {
-            _context = context;
-            AppUser = new AppUserRepository(_context);
-            Branch = new BranchRepository(_context);
-            PictureConfirmation = new PictureConfirmationRepository(_context);
-            Rating = new RatingRepository(_context);
-            Reservation = new ReservationRepository(_context);
-            Service = new ServiceRepository(_context);
-            Vehicle = new VehicleRepository(_context);
-            VehicleType = new VehicleTypeRepository(_context);
+            this.context = context;
         }
         
-        public IAppUserRepository AppUser { get; }
-        public IBranchRepository Branch { get; }
-        public IPictureConfirmationRepository PictureConfirmation { get; }
-        public IRatingRepository Rating { get; }
-        public IReservationRepository Reservation { get; }
-        public IServiceRepository Service { get; }
-        public IVehicleRepository Vehicle { get; }
-        public IVehicleTypeRepostiory VehicleType { get; }
+        [Dependency]
+        public IAppUserRepository AppUser { get; set; }
+        [Dependency]
+        public IBranchRepository Branch { get; set; }
+        [Dependency]
+        public IPictureConfirmationRepository PictureConfirmation { get; set; }
+        [Dependency]
+        public IRatingRepository Rating { get; set; }
+        [Dependency]
+        public IReservationRepository Reservation { get; set; }
+        [Dependency]
+        public IServiceRepository Service { get; set; }
+        [Dependency]
+        public IVehicleRepository Vehicle { get; set; }
+        [Dependency]
+        public IVehicleTypeRepostiory VehicleType { get; set; }
 
         public int Complete()
         {
-            return _context.SaveChanges();
+            return context.SaveChanges();
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            context.Dispose();
         }
     }
 }
