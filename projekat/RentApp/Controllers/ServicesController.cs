@@ -10,29 +10,31 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using RentApp.Models.Entities;
 using RentApp.Persistance;
+using RentApp.Models;
 
 namespace RentApp.Controllers
 {
-    public class ServicesController : ApiController
+    //[Authorize(Roles = "Admin")]
+    [RoutePrefix("api/Services")]
+    public class ServiceController : ApiController
     {
-        private RADBContext db;
-
-        public ServicesController(DbContext context)
+        IRentAppUnitOfWork db;
+        public ServiceController(IRentAppUnitOfWork unitOfWork)
         {
-            db = context as RADBContext;
+            this.db = unitOfWork;
         }
 
-        // GET: api/Services
-        public IQueryable<Service> GetServices()
+        // GET: api/Service
+        public IEnumerable<Service> GetServices()
         {
-            return db.Services;
+            return db.Service.GetAll();
         }
 
-        // GET: api/Services/5
+        // GET: api/Service/5
         [ResponseType(typeof(Service))]
         public IHttpActionResult GetService(int id)
         {
-            Service service = db.Services.Find(id);
+            Service service = db.Service.Get(id);
             if (service == null)
             {
                 return NotFound();
@@ -41,7 +43,22 @@ namespace RentApp.Controllers
             return Ok(service);
         }
 
-        // PUT: api/Services/5
+        // POST: api/Service
+        [ResponseType(typeof(Service))]
+        public IHttpActionResult PostService(Service service)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Service.Add(service);
+            db.Complete();
+
+            return CreatedAtRoute("DefaultApi", new { id = service.Id }, service);
+        }
+
+        // PUT: api/Service/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutService(int id, Service service)
         {
@@ -55,11 +72,19 @@ namespace RentApp.Controllers
                 return BadRequest();
             }
 
-            db.Entry(service).State = EntityState.Modified;
-
             try
             {
-                db.SaveChanges();
+                var serviceTemp = db.Service.Get(id);
+                serviceTemp.Approved = service.Approved;
+                serviceTemp.Branches = service.Branches;
+                serviceTemp.Description = service.Description;
+                serviceTemp.Email = service.Email;             
+                serviceTemp.LogoUrl = service.LogoUrl;
+                serviceTemp.Name = service.Name;
+                serviceTemp.Ratings = service.Ratings;
+                serviceTemp.Vehicles = service.Vehicles;
+
+                db.Complete();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -76,49 +101,30 @@ namespace RentApp.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Services
-        [ResponseType(typeof(Service))]
-        public IHttpActionResult PostService(Service service)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Services.Add(service);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = service.Id }, service);
-        }
-
-        // DELETE: api/Services/5
-        [ResponseType(typeof(Service))]
+        // DELETE: api/Service/5
+        [ResponseType(typeof(VehicleType))]
         public IHttpActionResult DeleteService(int id)
         {
-            Service service = db.Services.Find(id);
+            Service service = db.Service.Get(id);
             if (service == null)
             {
                 return NotFound();
             }
 
-            db.Services.Remove(service);
-            db.SaveChanges();
+            db.Service.Remove(service);
+            db.Complete();
 
             return Ok(service);
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            db.Dispose();
         }
 
         private bool ServiceExists(int id)
         {
-            return db.Services.Count(e => e.Id == id) > 0;
+            return db.Service.Get(id) != null;
         }
     }
 }

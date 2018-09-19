@@ -17,9 +17,8 @@ namespace RentApp.Controllers
         }
         public ActionResult Index()
         {
-            unitOfWork.VehicleType.Add(new VehicleType { TypeName = "Test" });
-            var x = unitOfWork.VehicleType.GetAll();
-            unitOfWork.Complete();
+            //unitOfWork.VehicleType.Add(new VehicleType { TypeName = "Test" });
+            //unitOfWork.Complete();
 
             ViewBag.Title = "Home Page";
 

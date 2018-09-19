@@ -24,7 +24,11 @@ export class LoginComponent implements OnInit {
     console.log('Uspesan ulazak u login....');
     console.log(user);
 
-    this.http.post('http://localhost:51680/api/Account/Register', user)
+    user.granttype = 'Admin';
+    user.clientid = 'admin';
+    user.password = 'admin';
+
+    this.http.post('http://localhost:51680/oauth/token', user)
       .subscribe((data) => {
         console.log(data);
       });
