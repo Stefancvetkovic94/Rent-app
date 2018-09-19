@@ -311,21 +311,30 @@ namespace RentApp.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        public IHttpActionResult Register(RegisterBindingModel model)
         {
             if (!ModelState.IsValid)
-            {
+            { 
                 return BadRequest(ModelState);
             }
 
-            var user = new RAIdentityUser() { UserName = model.Email, Email = model.Email };
-
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-
-            if (!result.Succeeded)
+            var user = new RAIdentityUser
             {
-                return GetErrorResult(result);
-            }
+                Id = model.Email,
+                UserName = model.Email,
+                Email = model.Email,
+                AppUser = new AppUser
+                {
+                    FullName = model.FirstName + " " + model.LastName,
+                    Email = model.Email,
+                    BirthDate = DateTime.Parse(model.BirthDate),
+                    ManagerCreationAllowed = false,
+                    Approved = false,
+                }
+            };
+
+            UserManager.Create(user, model.Password);
+            UserManager.AddToRole(user.Id, "AppUser");
 
             return Ok();
         }

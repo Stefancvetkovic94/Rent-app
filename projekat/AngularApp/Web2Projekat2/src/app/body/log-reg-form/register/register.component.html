@@ -1,0 +1,30 @@
+<form #f="ngForm" (ngSubmit)="register(f.value, f)">
+  <div class="form-group">
+    <label for="regInputFirstName">First name</label>
+    <input type="email" class="form-control" id="regInputFirstName" placeholder="First name" name="firstname" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="regInputLastName">Last name</label>
+    <input type="email" class="form-control" id="regInputLastName" placeholder="Last name" name="lastname" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="regInputUsername">Email</label>
+    <input type="email" class="form-control" id="regInputUsername" placeholder="Email" name="email" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="regInputPassword">Password</label>
+    <input type="password" class="form-control" id="regInputPassword" placeholder="Password" name="password" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="regInputConfirmPassword">Confirm password</label>
+    <input type="password" class="form-control" id="regInputConfirmPassword" placeholder="Confirm password" name="confirmpassword" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="regInputBirthDate">Birth Date</label>
+    <input type="date" class="form-control" id="regInputBirthDate" placeholder="Birth date" name="birthDate" ngModel>
+  </div>
+  <button type="submit" class="btn btn-primary float-right">Submit</button>
+</form>
+
+
+

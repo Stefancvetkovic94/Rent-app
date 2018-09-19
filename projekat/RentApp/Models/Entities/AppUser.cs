@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RentApp.Models.Entities
 {
@@ -8,6 +9,7 @@ namespace RentApp.Models.Entities
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
+        [Column(TypeName = "datetime2")]
         public DateTime BirthDate { get; set; }
         public bool Approved { get; set; }
         public bool ManagerCreationAllowed { get; set; }
