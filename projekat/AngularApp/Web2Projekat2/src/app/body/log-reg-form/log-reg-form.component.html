@@ -1,0 +1,46 @@
+<div class="col-md-4 align-content-center">
+  <ngb-tabset>
+    <ngb-tab title="Login">
+      <ng-template ngbTabContent>
+        <form #f="ngForm" (ngSubmit)="register(f.value, f)">
+          <div class="form-group">
+            <label for="loginInputEmail">Email</label>
+            <input type="email" class="form-control" id="loginInputEmail" placeholder="Email" name="email" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="loginInputPassword">Password</label>
+            <input type="password" class="form-control" id="loginInputPassword" placeholder="Password" name="password" ngModel>
+          </div>
+          <button type="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Register">
+      <ng-template ngbTabContent>
+        <form >
+          <div class="form-group">
+            <label for="regInputFirstName">First name</label>
+            <input type="text" class="form-control" id="regInputFirstName" placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label for="regInputLastName">Last name</label>
+            <input type="text" class="form-control" id="regInputLastName" placeholder="Last name">
+          </div>
+          <div class="form-group">
+            <label for="regInputUsername">Email</label>
+            <input type="email" class="form-control" id="regInputUsername" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="regInputPassword">Password</label>
+            <input type="password" class="form-control" id="regInputPassword" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="regInputBirthDate">Birth date</label>
+            <input type="date" class="form-control" id="regInputBirthDate" placeholder="YYYY-MM-DD">
+          </div>
+          <button type="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
