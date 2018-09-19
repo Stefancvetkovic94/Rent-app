@@ -3,6 +3,7 @@ import {User} from '../../../model/user';
 import {NgForm} from '@angular/forms';
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Injectable()
 @Component({
@@ -13,7 +14,7 @@ import {HttpClient} from '@angular/common/http';
 export class LoginComponent implements OnInit {
   user: User;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.user = new User();
   }
 
@@ -31,6 +32,8 @@ export class LoginComponent implements OnInit {
     this.http.post('http://localhost:51680/oauth/token', user)
       .subscribe((data) => {
         console.log(data);
+
+        this.router.navigate(['/']);
       });
 
   }

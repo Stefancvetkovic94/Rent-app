@@ -32,6 +32,7 @@ namespace RentApp.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
+            //RAIdentityUser user = userManager.Find(context.UserName, context.Password);
             RAIdentityUser user = await userManager.FindAsync(context.UserName, context.Password);
 
             if (user == null)
