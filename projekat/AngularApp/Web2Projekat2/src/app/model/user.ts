@@ -5,6 +5,7 @@ export class User {
   public password: string;
   public birthDate: Date;
   public token: string;
+  public type: string;
 
   constructor() {
     this.firstName = '';

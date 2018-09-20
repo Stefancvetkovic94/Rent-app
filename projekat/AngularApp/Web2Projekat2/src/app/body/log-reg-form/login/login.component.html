@@ -1,4 +1,4 @@
-<form #f="ngForm" (ngSubmit)="login(f.value, f)">
+<form #f="ngForm" (ngSubmit)="getTheToken(f.value, f)">
   <div class="form-group">
     <label for="loginInputEmail">Email</label>
     <input type="email" class="form-control" id="loginInputEmail" placeholder="Email" name="email" ngModel>
