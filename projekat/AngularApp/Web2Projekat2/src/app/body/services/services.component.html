@@ -1,11 +1,14 @@
 <p> </p>
 <p>lista svih servisa</p>
-<p> services works! </p>
+<div>
+  <button routerLink="/services/add-service">Add service</button>
+</div>
 <div>
  <ul >
     <li *ngFor="let service of services">
       <a routerLink="/services/{{service.id}}">{{service.id}} {{service.name}} </a>
-      <button>Add</button> <button>Delete</button>
+      <button routerLink="/services/edit-service">Edit</button>
+      <button>Delete</button>
     </li> 
  </ul>
 </div>

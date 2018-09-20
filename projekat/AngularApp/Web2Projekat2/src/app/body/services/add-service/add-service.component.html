@@ -1,0 +1,23 @@
+<form  (ngSubmit)="addService(f.value, f)" #f="ngForm">
+  <div class="form-group">
+    <label for="addServiceIdInput">Id</label>
+    <input type="text" class="form-control" id="addServiceIdInput" placeholder="Id" name="Id" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="addServiceNameInput">name</label>
+    <input type="text" class="form-control" id="addServiceNameInput" placeholder="name" name="name" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="addServiceLogourlInput">logoUrl</label>
+    <input type="text" class="form-control" id="addServiceLogourlInput" placeholder="" name="logoUrl" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="addServiceDescriptionInput">description</label>
+    <input type="email" class="form-control" id="addServiceDescriptionInput" placeholder="description" name="description" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="addServiceDescriptionInput">description </label>
+    <input type="text" class="form-control" id="addServiceDescriptionInput" placeholder="description" name="description" ngModel>
+  </div>
+  <button type="submit" class="btn btn-primary float-right">Submit</button>
+</form>

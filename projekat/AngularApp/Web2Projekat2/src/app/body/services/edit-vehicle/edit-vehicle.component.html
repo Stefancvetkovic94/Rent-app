@@ -1,0 +1,23 @@
+<form  (ngSubmit)="addVehicle(f.value, f)" #f="ngForm">
+  <div class="form-group">
+    <label for="addVehicleIdInput">Id</label>
+    <input type="text" class="form-control" id="addVehicleIdInput" placeholder="Id" name="Id" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="addVehicleModelInput">model</label>
+    <input type="text" class="form-control" id="addVehicleModelInput" placeholder="model" name="model" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="addVehicleManufacturerInput">manufacturer</label>
+    <input type="text" class="form-control" id="addVehicleManufacturerInput" placeholder="manufacturer" name="manufacturer" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="editVehicleYearInput">year</label>
+    <input type="text" class="form-control" id="editVehicleYearInput" placeholder="year" name="year" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="editVehiclePictureurlInput">pictureUrl </label>
+    <input type="text" class="form-control" id="editVehiclePictureurlInput" placeholder="pictureUrl" name="pictureUrl" ngModel>
+  </div>
+  <button type="submit" class="btn btn-primary float-right">Submit</button>
+</form>

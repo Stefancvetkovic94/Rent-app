@@ -16,15 +16,32 @@ import { ServicesComponent } from './body/services/services.component';
 import { ServiceComponent } from './body/services/service/service.component';
 import { VehicleComponent } from './body/services/service/vehicle/vehicle.component';
 import { ReservationComponent } from './body/services/service/reservation/reservation.component';
+import { AddServiceComponent} from './body/services/add-service/add-service.component';
+import { AddVehicleComponent } from './body/services/add-vehicle/add-vehicle.component';
+import { AddReservationComponent } from './body/services/add-reservation/add-reservation.component';
+import { EditVehicleComponent } from './body/services/edit-vehicle/edit-vehicle.component';
+import { EditServiceComponent } from './body/services/edit-service/edit-service.component';
+import { BranchComponent } from './body/services/branch/branch.component';
+import { AddBranchComponent } from './body/services/add-branch/add-branch.component';
+import { EditBranchComponent } from './body/services/edit-branch/edit-branch.component'
 
 
 const appRoutes: Routes = [
   { path: '', component: ServicesComponent },                             // Home-Services
   { path: 'login', component: LogRegFormComponent },                      // Login and Register
   { path: 'services', component: ServicesComponent },                     // Home-Services
-  { path: 'services/:id', component: ServiceComponent },                  // Service, List Vehicles
+  { path: 'services/add-service', component: AddServiceComponent },
+  { path: 'services/edit-service', component: EditServiceComponent},       // Add-Services
+  { path: 'services/:id', component: ServiceComponent },     
+  { path: 'services/:id/add-branch', component: AddBranchComponent },             // Service, List Vehicles
+  { path: 'services/:id/edit-branch', component: EditBranchComponent },
   { path: 'services/:id/reservation', component: ReservationComponent },  // Service/Vehicle, vehicle reservation
-  { path: 'services/:id/vehicle', component: ServiceComponent },       // Service/Vehicle, One vehicle
+  { path: 'services/:id/add-vehicle', component: AddVehicleComponent },   //Service/AddVehicle
+  { path: 'services/:id/add-reservation', component: AddReservationComponent},//Service/AddReservation
+  { path: 'services/:id/edit-vehicle', component: EditVehicleComponent},   //Service/EditVehicle 
+  { path: 'services/:id/:vehicleId', component: VehicleComponent },       // Service/Vehicle, One vehicle
+  { path: 'services/:id/:branches', component: BranchComponent },
+   
 ];
 
 @NgModule({
@@ -40,6 +57,14 @@ const appRoutes: Routes = [
     ServiceComponent,
     VehicleComponent,
     ReservationComponent,
+    AddServiceComponent,
+    AddVehicleComponent,
+    AddReservationComponent,
+    EditVehicleComponent,
+    EditServiceComponent,
+    BranchComponent,
+    AddBranchComponent,
+    EditBranchComponent,
   ],
   imports: [
     NgbModule.forRoot(),

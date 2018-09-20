@@ -1,0 +1,23 @@
+<form  (ngSubmit)="editService(f.value, f)" #f="ngForm">
+    <div class="form-group">
+      <label for="editServiceIdInput">Id</label>
+      <input type="text" class="form-control" id="editServiceIdInput" placeholder="Id" name="Id" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="editServiceNameInput">name</label>
+      <input type="text" class="form-control" id="editServiceNameInput" placeholder="name" name="name" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="editServiceLogourlInput">logoUrl</label>
+      <input type="text" class="form-control" id="editServiceLogourlInput" placeholder="" name="logoUrl" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="editServiceDescriptionInput">description</label>
+      <input type="email" class="form-control" id="editServiceDescriptionInput" placeholder="description" name="description" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="editServiceDescriptionInput">description </label>
+      <input type="text" class="form-control" id="editServiceDescriptionInput" placeholder="description" name="description" ngModel>
+    </div>
+    <button type="submit" class="btn btn-primary float-right">Submit</button>
+  </form>

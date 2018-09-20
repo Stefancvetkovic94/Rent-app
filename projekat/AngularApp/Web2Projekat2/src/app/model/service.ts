@@ -16,7 +16,7 @@ export class Service
       this.logoUrl="";
       this.email="";
       this.description="";
-      this.approved=undefined;
+      this.approved=false;
 
       this.branches;
       this.ratings;

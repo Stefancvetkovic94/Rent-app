@@ -1,0 +1,23 @@
+<form  (ngSubmit)="addBranch(f.value, f)" #f="ngForm">
+    <div class="form-group">
+      <label for="addBranchIdInput">Id</label>
+      <input type="text" class="form-control" id="addBranchIdInput" placeholder="Id" name="Id" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="addBranchAddresInput">addres</label>
+      <input type="text" class="form-control" id="addBranchAddresInput" placeholder="addres" name="addres" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="addBranchPictureUrl">PictureUrl</label>
+      <input type="text" class="form-control" id="addBranchPictureUrl" placeholder="PictureUrl" name="PictureUrl" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="addBranchLatitude">latitude</label>
+        <input type="text" class="form-control" id="addBranchLatitude" placeholder="latitude" name="latitude" ngModel>
+      </div>
+      <div class="form-group">
+          <label for="addBranchLongitude">longitude</label>
+          <input type="text" class="form-control" id="addBranchLongitude" placeholder="longitude" name="longitude" ngModel>
+        </div>
+    <button type="submit" class="btn btn-primary float-right">Submit</button>
+  </form>

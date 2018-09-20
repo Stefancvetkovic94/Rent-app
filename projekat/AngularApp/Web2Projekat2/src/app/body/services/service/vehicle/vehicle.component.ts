@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
+import { Vehicle } from '../../../../model/vehicle';
 
 
 
@@ -11,7 +12,9 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class VehicleComponent implements OnInit {
 
+  vehicle:Vehicle = new Vehicle();
   constructor(private http: HttpClient,private route: ActivatedRoute) {
+
    }
 
   ngOnInit() {
