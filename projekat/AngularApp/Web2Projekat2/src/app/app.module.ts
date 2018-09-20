@@ -31,10 +31,10 @@ const appRoutes: Routes = [
   { path: 'login', component: LogRegFormComponent },                      // Login and Register
   { path: 'services', component: ServicesComponent },                     // Home-Services
   { path: 'services/add-service', component: AddServiceComponent },
-  { path: 'services/edit-service', component: EditServiceComponent},       // Add-Services
+  { path: 'services/edit-service/:id', component: EditServiceComponent},       // Add-Services
   { path: 'services/:id', component: ServiceComponent },     
   { path: 'services/:id/add-branch', component: AddBranchComponent },             // Service, List Vehicles
-  { path: 'services/:id/edit-branch', component: EditBranchComponent },
+  { path: 'services/:id/edit-branch/:id', component: EditBranchComponent },
   { path: 'services/:id/reservation', component: ReservationComponent },  // Service/Vehicle, vehicle reservation
   { path: 'services/:id/add-vehicle', component: AddVehicleComponent },   //Service/AddVehicle
   { path: 'services/:id/add-reservation', component: AddReservationComponent},//Service/AddReservation

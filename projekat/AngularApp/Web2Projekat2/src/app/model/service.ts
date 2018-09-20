@@ -1,25 +1,25 @@
 export class Service
 {
-    public id: number
-        public name: string
-        public logoUrl: string
-        public email: string
-        public description:string
-        public approved: boolean
+        public Id: number
+        public Name: string
+        public LogoUrl: string
+        public Email: string
+        public Description:string
+        public Approved: boolean
 
-        public branches: object[]
-        public ratings: object[]
-        public vehicles: object[]
+        public Branches: object[]
+        public Ratings: object[]
+        public Vehicles: object[]
   constructor()
   {
-      this.name="";
-      this.logoUrl="";
-      this.email="";
-      this.description="";
-      this.approved=false;
+      this.Name="";
+      this.LogoUrl="";
+      this.Email="";
+      this.Description="";
+      this.Approved=false;
 
-      this.branches;
-      this.ratings;
-      this.vehicles;
+      this.Branches;
+      this.Ratings;
+      this.Vehicles;
   }
 }

@@ -1,18 +1,18 @@
 export class Branch
 {
-    public  id: number 
-    public addres: string 
-    public pictureUrlstring: string
-    public latitude: number
-    public longitude: number 
-    public serviceid: number
+    public  Id: number 
+    public Address: string 
+    public PictureUrl: string
+    public Latitude: number
+    public Longitude: number 
+    public Service: number
 
     constructor() {
-        this.id;
-        this.addres = '';
-        this.pictureUrlstring = '';
-        this.latitude;
-        this.longitude;
-        this.serviceid;
+        this.Id;
+        this.Address = '';
+        this.PictureUrl = '';
+        this.Latitude;
+        this.Longitude;
+        this.Service;
       }
 }

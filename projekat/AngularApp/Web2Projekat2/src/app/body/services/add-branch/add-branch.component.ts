@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Injectable()
 @Component({
@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 })
 export class AddBranchComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -21,12 +21,12 @@ export class AddBranchComponent implements OnInit {
     console.log('Uspesan ulazak u registraciju....');
     console.log(branch);
 
-    this.http.post('http://localhost:51680/services/:id/add-branch', branch)
+    this.http.post('http://localhost:51680/api/Branch', branch)
       .subscribe((data) => {
         console.log(data);
 
 
-        this.router.navigate(['/']);
+        this.router.navigate(['services/'+this.route.snapshot.params['id']]);
       });
   }
 }

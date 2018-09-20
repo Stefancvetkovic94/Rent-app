@@ -13,8 +13,10 @@ export class BranchComponent implements OnInit {
 branch: Branch=new Branch();
   constructor(private http: HttpClient,private route: ActivatedRoute) { }
 
+  
   ngOnInit() {
     this.route = this.route.snapshot.params['id'];
   }
+  
 
 }

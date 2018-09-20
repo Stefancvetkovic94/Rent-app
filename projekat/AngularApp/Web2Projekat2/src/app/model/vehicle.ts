@@ -1,27 +1,27 @@
 export class Vehicle
 {
-    public id: number    
-    public model: string
-    public manufacturer: string
-    public year: number
-    public pictureurl: string
-    public description: string
-    public costPerHour: number
-    public vehicleTypeId: number
-    public branchId: number
-    public reservations: object[]
+    public Id: number    
+    public Model: string
+    public Manufacturer: string
+    public Year: number
+    public Pictureurl: string
+    public Description: string
+    public CostPerHour: number
+    public VehicleType: number
+    public Branch: number
+    public Reservations: object[]
 
   constructor()
   {
-      this.id;
-      this.model="";
-      this.manufacturer="";
-      this.year;
-      this.pictureurl="";
-      this.description="";
-      this.costPerHour;
-      this.vehicleTypeId;
-      this.branchId;
-      this.reservations;
+      this.Id;
+      this.Model="";
+      this.Manufacturer="";
+      this.Year;
+      this.Pictureurl="";
+      this.Description="";
+      this.CostPerHour;
+      this.VehicleType;
+      this.Branch;
+      this.Reservations;
   }
 }

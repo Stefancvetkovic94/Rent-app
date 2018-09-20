@@ -6,9 +6,9 @@
 <div>
  <ul >
     <li *ngFor="let service of services">
-      <a routerLink="/services/{{service.id}}">{{service.id}} {{service.name}} </a>
-      <button routerLink="/services/edit-service">Edit</button>
-      <button>Delete</button>
+      <a routerLink="/services/{{service.Id}}">{{service.Id}} {{service.Name}} </a>
+      <button routerLink="/services/edit-service/{{service.Id}}">Edit</button>
+      <button (click)="DeleteService(service.Id)">Delete</button>
     </li> 
  </ul>
 </div>

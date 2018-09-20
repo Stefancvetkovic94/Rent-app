@@ -21,7 +21,7 @@ export class AddServiceComponent implements OnInit {
     console.log('Uspesan ulazak u registraciju....');
     console.log(service);
 
-    this.http.post('http://localhost:51680/services/add-service', service)
+    this.http.post('http://localhost:51680/api/Service', service)
       .subscribe((data) => {
         console.log(data);
 

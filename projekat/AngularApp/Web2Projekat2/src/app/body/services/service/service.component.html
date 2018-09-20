@@ -1,20 +1,22 @@
 <div>
     <button routerLink="/services/{{id}}/add-vehicle">Add vehicle</button>
+    <button routerLink="/services/{{id}}/add-branch">Add branch</button>
+       
 </div>
 <p> Lista svih vozila ovog servisa</p>
 <ul >
     <li *ngFor="let vehicle of vehicles">
-        <a routerLink="/services/{{id}}/{{vehicle.id}}">{{vehicle.model}}{{vehicle.year}}</a>
-        <button routerLink="/services/{{id}}/add-reservation">Add reservation</button>        
+        <a routerLink="/services/:id/vehicles">{{vehicle.Model}}   {{vehicle.Year}}  {{vehicle.Manufacturer}}</a>            
         <button routerLink="/services/{{id}}/edit-vehicle">Edit vehicle</button>  
-        <button>Delete vehicle</button>     
+        <button>Delete vehicle</button>    
+        <button routerLink="/services/{{id}}/add-reservation">Add reservation</button> 
     </li>
     <p></p>
     <p></p>
     <li *ngFor="let branch of branches">
-       <a routerLink="/services/:id/branches"> {{branch.id}}    {{branch.longitude}}</a>
-       <button routerLink="/services/{{id}}/add-branch">Add branch</button>        
-       <button routerLink="/services/{{id}}/edit-branch">Edit branch</button>  
-       <button>Delete branch</button> 
+       <a routerLink="/services/:id/branches"> {{branch.Id}}    {{branch.Longitude}}   {{branch.Latitude}} 
+        {{branch.Service}} {{branch.Address}}</a>            
+       <button routerLink="/services/{{id}}/edit-branch/{{branch.Id}}">Edit branch</button>  
+       <button (click)="DeleteBranch(branch.Id)">Delete branch</button> 
     </li>
 </ul>

@@ -1,11 +1,7 @@
 <form  (ngSubmit)="editBranch(f.value, f)" #f="ngForm">
     <div class="form-group">
-      <label for="editBranchIdInput">Id</label>
-      <input type="text" class="form-control" id="editBranchIdInput" placeholder="Id" name="Id" ngModel>
-    </div>
-    <div class="form-group">
       <label for="editBranchAddresInput">addres</label>
-      <input type="text" class="form-control" id="editBranchAddresInput" placeholder="addres" name="addres" ngModel>
+      <input type="text" class="form-control" id="editBranchAddresInput" placeholder="Address" name="Address" ngModel>
     </div>
     <div class="form-group">
       <label for="editBranchPictureUrl">PictureUrl</label>
@@ -13,11 +9,11 @@
     </div>
     <div class="form-group">
         <label for="editBranchLatitude">latitude</label>
-        <input type="text" class="form-control" id="editBranchLatitude" placeholder="latitude" name="latitude" ngModel>
+        <input type="text" class="form-control" id="editBranchLatitude" placeholder="Latitude" name="Latitude" ngModel>
       </div>
       <div class="form-group">
           <label for="editBranchLongitude">longitude</label>
-          <input type="text" class="form-control" id="editBranchLongitude" placeholder="longitude" name="longitude" ngModel>
+          <input type="text" class="form-control" id="editBranchLongitude" placeholder="Longitude" name="Longitude" ngModel>
         </div>
     <button type="submit" class="btn btn-primary float-right">Submit</button>
   </form>
