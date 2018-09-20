@@ -3,16 +3,16 @@
     <button routerLink="/services/{{id}}/add-branch" *ngIf="getRole() == 'admin' || getRole() == 'manager'">Add branch</button>
 
 </div>
-<p> Lista svih vozila ovog servisa</p>
+<p> Lista svih vozila ovog servisa  </p>
 <ul >
     <li *ngFor="let vehicle of vehicles">
         <a>{{vehicle.Id}} {{vehicle.Model}}   {{vehicle.Year}}  {{vehicle.Manufacturer}}</a>
         <button routerLink="/services/{{id}}/edit-vehicle/{{vehicle.Id}}" *ngIf="getRole() == 'admin' || getRole() == 'manager'">Edit vehicle</button>
         <button (click)="DeleteVehicle(vehicle.Id)" *ngIf="getRole() == 'admin'">Delete vehicle</button>
-        <button routerLink="/services/{{id}}/add-reservation">Add reservation</button>
+        <button routerLink="/services/{{id}}/add-reservation" *ngIf="getRole() == 'admin' || getRole() == 'manager'">Add reservation</button>
     </li>
     <p></p>
-    <p>Branches</p>
+<p>Branches: </p>
     <li *ngFor="let branch of branches">
        <a> {{branch.Id}}    {{branch.Longitude}}   {{branch.Latitude}} {{branch.Service}} {{branch.Address}}</a>
        <button routerLink="/services/{{id}}/edit-branch/{{branch.Id}}" *ngIf="getRole() == 'admin' || getRole() == 'manager'">Edit branch</button>

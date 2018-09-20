@@ -27,7 +27,7 @@ export class EditVehicleComponent implements OnInit {
     console.log('Vozilo ' + vehicle + ' je izmenjeno....');
     vehicle.Id = this.route.snapshot.params['vehicleid'];
     var id= this.route.snapshot.params['id']
-    this.http.post('http://localhost:51680/api/Vehicle/' + vehicle.Id, vehicle)
+    this.http.put('http://localhost:51680/api/Vehicle/' + vehicle.Id, vehicle)
       .subscribe((data) => {
 
         this.router.navigate(['/services/' + id]);
