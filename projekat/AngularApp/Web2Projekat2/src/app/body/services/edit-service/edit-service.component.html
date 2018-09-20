@@ -1,4 +1,4 @@
-<form  (ngSubmit)="EditService(f.value, f)" #f="ngForm">
+<form  (ngSubmit)="EditService(f.value, f)" #f="ngForm" *ngIf="getRole() == 'admin'">
     <div class="form-group">
       <label for="editServiceNameInput">name</label>
       <input type="text" class="form-control" id="editServiceNameInput" placeholder="name" name="Name" ngModel>

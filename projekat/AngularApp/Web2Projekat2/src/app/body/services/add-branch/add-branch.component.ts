@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router, ActivatedRoute} from '@angular/router';
+import { UserService } from '../../../custom-services/UserService';
+import { User } from '../../../model/user';
 
 @Injectable()
 @Component({
@@ -11,8 +13,10 @@ import {Router, ActivatedRoute} from '@angular/router';
   styleUrls: ['./add-branch.component.css']
 })
 export class AddBranchComponent implements OnInit {
-
-  constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute) { }
+user: User = new User();
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, private userService: UserService) {
+this.user = userService.getUser();
+   }
 
   ngOnInit() {
   }
@@ -28,5 +32,13 @@ export class AddBranchComponent implements OnInit {
 
         this.router.navigate(['services/'+this.route.snapshot.params['id']]);
       });
+  }
+
+  getRole() {
+    if (!localStorage.role) {
+      return '';
+    } else {
+      return localStorage.role;
+    }
   }
 }

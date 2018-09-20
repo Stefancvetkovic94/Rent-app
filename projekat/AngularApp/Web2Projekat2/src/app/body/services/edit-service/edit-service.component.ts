@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router, ActivatedRoute} from '@angular/router';
+import { UserService } from '../../../custom-services/UserService';
+import { User } from '../../../model/user';
 
 
 @Injectable()
@@ -13,22 +15,32 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class EditServiceComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute) { }
+user: User = new User();
+
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, userService: UserService) {
+this.user = userService.getUser();
+   }
 
   ngOnInit() {
-   
+
   }
 
-  EditService(service: any,form: NgForm) {
-    console.log(service);
-    
-    service.Id=this.route.snapshot.params['id'];
-    this.http.put('http://localhost:51680/api/Service/'+service.Id, service)
-      .subscribe((data) => {
-        console.log(data);
+  EditService(service: any, form: NgForm) {
+    console.log('Servis ' + service + ' je uspesno izmenjen');
 
+    service.Id = this.route.snapshot.params['id'];
+    this.http.put('http://localhost:51680/api/Service/' + service.Id, service)
+      .subscribe((data) => {
 
         this.router.navigate(['/']);
       });
+  }
+
+  getRole() {
+    if (!localStorage.role) {
+      return '';
+    } else {
+      return localStorage.role;
+    }
   }
 }

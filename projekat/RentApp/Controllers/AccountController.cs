@@ -318,7 +318,7 @@ namespace RentApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new RAIdentityUser
+            var user = new RAIdentityUser()
             {
                 Id = model.Email,
                 UserName = model.Email,
@@ -333,10 +333,18 @@ namespace RentApp.Controllers
                 }
             };
 
-            UserManager.Create(user, model.Password);
-            UserManager.AddToRole(user.Id, "AppUser");
+            IdentityResult createUser = UserManager.Create(user, model.Password);
+            
+            if (createUser.Succeeded)
+            {
+                IdentityResult roleResult = UserManager.AddToRole(user.Id, "AppUser");
+                if (roleResult.Succeeded)
+                {
+                    return Ok();
+                }
+            }
 
-            return Ok();
+            return BadRequest();
         }
 
         // POST api/Account/RegisterExternal

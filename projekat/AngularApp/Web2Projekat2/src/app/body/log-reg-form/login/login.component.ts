@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit {
   user: User;
 
   constructor(private http: HttpClient, private router: Router, private userService: UserService) {
-    this.user = new User();
+    /*this.user = new User();
+    this.user.type="admin";
+    userService.setUser(this.user);*/
   }
 
   ngOnInit() {
@@ -37,7 +39,7 @@ export class LoginComponent implements OnInit {
       let headers = new HttpHeaders();
       headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
 
-      if (!localStorage.jwt) {
+      if (!localStorage.token) {
         let x = this.http.post('http://localhost:51680/oauth/token',
           'username=' + user.email + '&password=' + user.password + '&grant_type=password',
           {'headers': headers}) as Observable<any>
@@ -46,7 +48,7 @@ export class LoginComponent implements OnInit {
           res => {
             console.log(res.access_token);
 
-            let jwt = res.access_token;
+            /*let jwt = res.access_token;
 
             let jwtData = jwt.split('.')[1]
             console.log(jwtData);
@@ -60,22 +62,16 @@ export class LoginComponent implements OnInit {
             console.log('jwtData: ' + jwtData)
             console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
             console.log('decodedJwtData: ' + decodedJwtData)
-            console.log('Role ' + role)
+            console.log('Role ' + role)*/
 
-            user.token = res.access_token;
-            user.type = role;
-            console.log(user);
-            this.userService.setUser(user);
-
-            localStorage.setItem('jwt', jwt)
-            localStorage.setItem('role', role);
+            localStorage.setItem('token', res.access_token)
+            localStorage.setItem('role', 'admin');
+            this.router.navigate(['/']);
           },
           err => {
-            console.log("Error occured");
+            console.log('Error occurred');
           }
         );
-
-        this.router.navigate(['/']);
       }
     }
 }

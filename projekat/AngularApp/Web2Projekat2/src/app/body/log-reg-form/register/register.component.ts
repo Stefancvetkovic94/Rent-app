@@ -19,8 +19,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register(user: any, form: NgForm) {
-    console.log('Uspesan ulazak u registraciju....');
-    console.log(user);
 
     this.http.post('http://localhost:51680/api/Account/Register', user)
       .subscribe((data) => {

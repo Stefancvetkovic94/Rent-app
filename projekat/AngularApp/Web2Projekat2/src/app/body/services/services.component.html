@@ -1,14 +1,13 @@
-<p> </p>
-<p>lista svih servisa</p>
 <div>
-  <button routerLink="/services/add-service">Add service</button>
+    <button routerLink="/services/add-service" *ngIf="getRole() == 'admin'">Add service</button>
 </div>
+
 <div>
  <ul >
     <li *ngFor="let service of services">
       <a routerLink="/services/{{service.Id}}">{{service.Id}} {{service.Name}} </a>
-      <button routerLink="/services/edit-service/{{service.Id}}">Edit</button>
-      <button (click)="DeleteService(service.Id)">Delete</button>
-    </li> 
+      <button routerLink="/services/edit-service/{{service.Id}}" *ngIf="getRole() == 'admin'">Edit</button>
+      <button (click)="DeleteService(service.Id)" *ngIf="getRole() == 'admin'" >Delete</button>
+    </li>
  </ul>
 </div>

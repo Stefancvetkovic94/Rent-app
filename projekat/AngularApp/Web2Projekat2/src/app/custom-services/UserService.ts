@@ -5,21 +5,21 @@ import {User} from '../model/user';
   providedIn: 'root'
 })
 export class UserService {
-  user: User;
+  static user: User;
 
   constructor() {
   }
 
   getUser() {
-    return this.user;
+    return UserService.user;
   }
 
   setUser(user: User) {
-    this.user.password = user.password;
-    this.user.email = user.email;
-    this.user.token = user.token;
-    this.user.type = user.type;
-    console.log(user);
-    console.log(this.user);
+    user = new User();
+
+    user.email = user.email;
+    user.password = user.password;
+    user.token = user.token;
+    user.type = user.type;
   }
 }

@@ -55,6 +55,7 @@ namespace RentApp.Migrations
 
                 manager.Create(role);
             }
+            
 
             context.AppUsers.AddOrUpdate(
 

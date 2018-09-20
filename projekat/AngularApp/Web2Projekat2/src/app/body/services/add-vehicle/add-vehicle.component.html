@@ -1,4 +1,4 @@
-<form  (ngSubmit)="addVehicle(f.value, f)" #f="ngForm">
+<form  (ngSubmit)="addVehicle(f.value, f)" #f="ngForm" *ngIf="getRole() == 'admin' || getRole() == 'manager'">
   <div class="form-group">
     <label for="addVehicleModelInput">model</label>
     <input type="text" class="form-control" id="addVehicleModelInput" placeholder="Model" name="Model" ngModel>

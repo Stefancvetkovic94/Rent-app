@@ -1,22 +1,21 @@
 <div>
-    <button routerLink="/services/{{id}}/add-vehicle">Add vehicle</button>
-    <button routerLink="/services/{{id}}/add-branch">Add branch</button>
-       
+    <button routerLink="/services/{{id}}/add-vehicle" *ngIf="getRole() == 'admin' || getRole() == 'manager'">Add vehicle</button>
+    <button routerLink="/services/{{id}}/add-branch" *ngIf="getRole() == 'admin' || getRole() == 'manager'">Add branch</button>
+
 </div>
 <p> Lista svih vozila ovog servisa</p>
 <ul >
     <li *ngFor="let vehicle of vehicles">
-        <a routerLink="/services/:id/vehicles">{{vehicle.Model}}   {{vehicle.Year}}  {{vehicle.Manufacturer}}</a>            
-        <button routerLink="/services/{{id}}/edit-vehicle">Edit vehicle</button>  
-        <button>Delete vehicle</button>    
-        <button routerLink="/services/{{id}}/add-reservation">Add reservation</button> 
+        <a>{{vehicle.Id}} {{vehicle.Model}}   {{vehicle.Year}}  {{vehicle.Manufacturer}}</a>
+        <button routerLink="/services/{{id}}/edit-vehicle/{{vehicle.Id}}" *ngIf="getRole() == 'admin' || getRole() == 'manager'">Edit vehicle</button>
+        <button (click)="DeleteVehicle(vehicle.Id)" *ngIf="getRole() == 'admin'">Delete vehicle</button>
+        <button routerLink="/services/{{id}}/add-reservation">Add reservation</button>
     </li>
     <p></p>
-    <p></p>
+    <p>Branches</p>
     <li *ngFor="let branch of branches">
-       <a routerLink="/services/:id/branches"> {{branch.Id}}    {{branch.Longitude}}   {{branch.Latitude}} 
-        {{branch.Service}} {{branch.Address}}</a>            
-       <button routerLink="/services/{{id}}/edit-branch/{{branch.Id}}">Edit branch</button>  
-       <button (click)="DeleteBranch(branch.Id)">Delete branch</button> 
+       <a> {{branch.Id}}    {{branch.Longitude}}   {{branch.Latitude}} {{branch.Service}} {{branch.Address}}</a>
+       <button routerLink="/services/{{id}}/edit-branch/{{branch.Id}}" *ngIf="getRole() == 'admin' || getRole() == 'manager'">Edit branch</button>
+       <button (click)="DeleteBranch(branch.Id)" *ngIf="getRole() == 'admin' || getRole() == 'manager'">Delete branch</button>
     </li>
 </ul>

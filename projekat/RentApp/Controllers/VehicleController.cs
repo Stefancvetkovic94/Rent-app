@@ -25,6 +25,7 @@ namespace RentApp.Controllers
         public IEnumerable<Vehicle> GetVehicles()
         {
             return db.Vehicle.GetAll();
+            
         }
 
         // GET: api/Vehicle/5

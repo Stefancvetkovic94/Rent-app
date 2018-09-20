@@ -1,4 +1,4 @@
-<form  (ngSubmit)="editBranch(f.value, f)" #f="ngForm">
+<form  (ngSubmit)="editBranch(f.value, f)" #f="ngForm" *ngIf="getRole() == 'admin' || getRole() == 'manager'">
     <div class="form-group">
       <label for="editBranchAddresInput">addres</label>
       <input type="text" class="form-control" id="editBranchAddresInput" placeholder="Address" name="Address" ngModel>
